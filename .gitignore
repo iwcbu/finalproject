@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# MacOS system files
+Icon?
+
+# IDEs/editors
+.vscode/
+.idea/
+
+# Logs and system cache
+*.log
+
+# VS Code local settings backup
+*.code-workspace
+
