@@ -10,7 +10,6 @@ const GallerySty = styled.div`
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    background-color: whitesmoke;
     padding: 1rem;
 
     @media (min-width: 910px) {
@@ -19,15 +18,17 @@ const GallerySty = styled.div`
 `;
 
 const StockSty = styled.div<{change: number}>`
-    margin: 1rem;
-    background-color: whitesmoke;
-    padding: 1rem;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
     height: 100px;
     width: 200px;
+    margin: 1rem;
+    padding: 1rem;
+    background-color:white;
+
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
     overflow-y: auto;
+    
     border: 3px black solid;
     border-radius: 10px;
     box-shadow: 20px 10px 30px grey;

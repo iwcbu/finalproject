@@ -3,7 +3,6 @@ import HomePopStocks from "@/components/HomePopStocks"
 
 
 import {Container} from "@/components/GlobalStyledComponents";
-import StockGridFetch from "@/app/StockGridFetch";
 import StockDay from "@/components/StockDay";
 
 //Abdallah:
@@ -11,14 +10,10 @@ import StockDay from "@/components/StockDay";
 export default function Home() {
 
   return (
-    <>
-      
-
-      <Container>
-          <StockDay/>
-          <HomePopStocks />
-      </Container>
-    </>
+    <div>
+      <StockDay/>
+      <HomePopStocks />
+    </div>
 
   );
 }

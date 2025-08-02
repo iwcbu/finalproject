@@ -51,4 +51,3 @@ export type FHStockPrices = {
     v: number[]; // volume
     s: string; // status
 }
-

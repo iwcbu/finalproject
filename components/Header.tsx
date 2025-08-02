@@ -3,12 +3,21 @@
 import styled from "styled-components";
 
 const HeaderSty = styled.header`
-        height: 50px;
-        width: 80%;
-        margin: 0 auto;
-        background-color: maroon;
+        height: fit-content;
         padding: 10px;
+        margin: 0 auto;
 
+        color: whitesmoke;
+        background-color: black;
+
+        h1 {
+            width: fit-content;
+            height: fit-content;
+            
+            justify-self: center;
+            padding: 5px;
+            border: 3px white solid;
+        }
 
 `;
 

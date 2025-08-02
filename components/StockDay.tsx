@@ -6,20 +6,35 @@
 import styled from "styled-components";
 
 const StyledDiv=styled.div`
-    border:4px solid white;
     
     width:100%;
     height: 40vh;
+
+    display:flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
     
 
 `;
 
 const StockDayDiv=styled.div`
-    border:4px solid white;
+    width: fit-content;
+    padding: 15px;
+
+    display:flex;
+    flex-direction: column;
+    
     justify-content: center;
-    border-radius:10px;
+    align-items: center;
+    
     background-color: white;
-    width:50%;
+    border: 3px black solid;
+    border-radius:10px;
+    box-shadow: 20px 20px 40px grey;
+    font-size: 25px;
    
 `;
 
