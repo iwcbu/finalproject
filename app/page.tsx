@@ -13,16 +13,12 @@ export default function Home() {
   return (
     <>
       
-      <HomePopStocks />
-    </>
 
       <Container>
           <StockDay/>
-
-          <StockGridFetch/>
-
-
+          <HomePopStocks />
       </Container>
+    </>
 
   );
 }
