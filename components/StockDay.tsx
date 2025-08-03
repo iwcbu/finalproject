@@ -15,6 +15,7 @@ const StyledDiv=styled.div`
 
     justify-content: center;
     align-items: center;
+    border-bottom: 3px solid grey;
 
     
 

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {PageWrapper} from "@/components/GlobalStyledComponents";
-import Header from "@/components/Header";
-import NavBar from "@/components/NavBar";
+
+import NavBar from "@/components/NavBar/NavBar";
 
 //ABDALLAH: I commented these as it is not our code.
 // const geistSans = Geist({
@@ -31,7 +31,7 @@ export default function RootLayout({
       <body>
 
       <PageWrapper>{/*Abdallah: Page wrapper is a styled component to contain all the content in. */}
-          <Header/> {/* Abdallah: To Display Header on all pages.*/}
+
 
           <NavBar/> {/* Abdallah: To Display NavBar on all pages.*/}
           {children}
