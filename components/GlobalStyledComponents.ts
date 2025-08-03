@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 //Abdallah: This component is used in the layout.tsx to wrap all the content
 export const PageWrapper = styled.div`
-    width: 80vw; //Abdallah: To squeeze the Page
+    width: 100vw; //Abdallah: To squeeze the Page
     margin: 0 auto; //Abdallah: To center the page
-    background-color:whitesmoke; 
+    background-color:black; 
 `;
 
 

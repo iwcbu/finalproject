@@ -5,13 +5,23 @@ import { Home } from "@mui/icons-material"
 
 const StyledDiv=styled.div`
     background-color: black;
+    border-bottom: 3px solid grey;
+
+`;
+
+const StyledHeader=styled.div`
+    h1{
+        color:white;
+    }
+    
+
 
 `;
 
 const StyledUl=styled.ul`
     display:flex;
     flex-direction:row;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     list-style:none;
 
     a{
@@ -33,15 +43,28 @@ const StyledUl=styled.ul`
 
 const links=[
     {
+        key:"Home",
+        href:"/",
+        name:<Home />
+
+    },
+    {
+        key:"Account",
+        href:"/Account",
+        name:"Account"
+
+    },
+
+    {
         key: "About",
         href:"/About",
         name:"About"
     },
+
     {
-        key:"Home",
-        href:"/",
-        name:<Home />
-        
+        key:"Contact",
+        href:"/Contact",
+        name:"Contact"
     }
 
 ];
@@ -52,11 +75,10 @@ export default function NavBar() {
 
     return(
         <StyledDiv>
+            <StyledHeader><h1>Market Scouters</h1></StyledHeader>
             <nav>
                 <StyledUl>
-                    <li key={"Contact"} id="contact">
-                        <Link href={"/Contact"}>Contact</Link>
-                    </li>
+
                     {links.map((link)=>(
                         <li key={link.key}>
                             <Link href={link.href}>{link.name}</Link>

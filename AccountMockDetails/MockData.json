@@ -1,0 +1,29 @@
+[
+  {
+    "id": "user01",
+    "profile-color": "blue",
+    "username": "Taymaz Davoodi",
+    "email": "taymaz@bu.edu",
+    "password": "hello123"
+  },
+
+  {
+    "id": "user02",
+    "profile-color": "green",
+    "username": "Ian Campbell",
+    "email": "iwc@bu.edu",
+    "password": "bye123"
+  },
+  {
+    "id": "user03",
+    "profile-color": "grey",
+    "username": "Abdallah Shafiullah",
+    "email": "ashafi@bu.edu",
+    "password": "heythere123"
+
+  }
+
+
+
+
+]
