@@ -8,7 +8,6 @@ import styled from "styled-components";
 
 const GallerySty = styled.div`
     margin: 0 auto;
-
 `
 
 

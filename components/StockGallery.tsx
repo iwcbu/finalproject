@@ -5,14 +5,14 @@ import styled from "styled-components";
 
 const GallerySty = styled.div`
     margin: 0 auto;
-    width: 80%;
     min-height: 100%;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: stretch;
-    background-color: whitesmoke;
-    padding: 1rem;
+
+    background-color: red;
 
     @media (min-width: 910px) {
         height: 600px;        
@@ -43,6 +43,11 @@ const StockSty = styled.div`
         font-size: 10px;
         width: 80%
     }
+
+    @media (min-width: 910px) {
+        background-color: red;        
+    }
+
 `;
 
 

@@ -8,7 +8,7 @@ const HeaderSty = styled.header`
         margin: 0 auto;
 
         color: whitesmoke;
-        background-color: black;
+        background-color: green;
 
         h1 {
             width: fit-content;

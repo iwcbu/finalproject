@@ -4,7 +4,10 @@ import styled from "styled-components";
 import { Home } from "@mui/icons-material"
 
 const StyledDiv=styled.div`
-    background-color: black;
+    background-color: whitesmoke;
+    height: fit-content;
+    padding: 10px;
+    border-bottom:2px black solid;
 
 `;
 
@@ -15,16 +18,21 @@ const StyledUl=styled.ul`
     list-style:none;
 
     a{
-        color: white;
+        color: black;
     }
 
     /** Contact button styles - IWC */
     #contact {
         width: fit-content;
         height: fit-content;
+
         padding: 5px 10px;
-        background-color: #5c8a56;
         border-radius: 7px;
+
+        background-color: green;
+        a {
+            color: white;
+        }
     }
 
 
