@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import getPopStockPrices from "@/lib/getPopStockPrices"
 import styled from "styled-components";
-import PopStockGallery from "@/components/PopStockGallery"
+import PopStockGallery from "@/components/HomePage/PopStockGallery"
 
 const GallerySty = styled.div`
     margin: 0 auto;
@@ -25,6 +25,10 @@ export default function HomePopStocks() {
             }
         }
         fetchStocks();
+
+        const interval = setInterval(fetchStocks, 30000);
+        
+        return () => clearInterval(interval);
     }, []);
 
 

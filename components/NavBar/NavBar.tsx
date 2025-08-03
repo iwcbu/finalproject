@@ -31,21 +31,7 @@ const StyledUl=styled.ul`
     list-style:none;
 
     a{
-        color: black;
-    }
-
-    /** Contact button styles - IWC */
-    #contact {
-        width: fit-content;
-        height: fit-content;
-
-        padding: 5px 10px;
-        border-radius: 7px;
-
-        background-color: green;
-        a {
-            color: white;
-        }
+        color: white;
     }
 
 

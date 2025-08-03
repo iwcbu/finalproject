@@ -1,7 +1,7 @@
 "use client";
 
-import allstocks from "../allstocks.json"
-import StockGallery from "@/components/StockGallery";
+import allstocks from "@/allstocks.json"
+import StockGallery from "@/components/GalleryPage/StockGallery";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import { useState, useEffect } from "react"
 import styled from "styled-components";

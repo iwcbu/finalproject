@@ -15,7 +15,7 @@ const StyledDiv=styled.div`
 
     justify-content: center;
     align-items: center;
-    border-bottom: 3px solid grey;
+    color: white;
 
     
 
@@ -31,10 +31,9 @@ const StockDayDiv=styled.div`
     justify-content: center;
     align-items: center;
     
-    background-color: white;
-    border: 3px black solid;
+    background-color: black;
+    border: 3px grey solid;
     border-radius:10px;
-    box-shadow: 20px 20px 40px grey;
     font-size: 25px;
    
 `;
