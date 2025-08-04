@@ -2,7 +2,9 @@
   {
     "id": "user01",
     "profile-color": "blue",
-    "username": "Taymaz Davoodi",
+    "first-name": "Taymaz",
+    "last-name": "Davoodi",
+    "username": "TDvoodi",
     "email": "taymaz@bu.edu",
     "password": "hello123"
   },
@@ -10,14 +12,18 @@
   {
     "id": "user02",
     "profile-color": "green",
-    "username": "Ian Campbell",
+    "first-name": "Ian",
+    "last-name": "Campbell",
+    "username": "iwc3",
     "email": "iwc@bu.edu",
     "password": "bye123"
   },
   {
     "id": "user03",
     "profile-color": "grey",
-    "username": "Abdallah Shafiullah",
+    "first-name": "Abdallah",
+    "last-name": "Shafiullah",
+    "username": "Ashafi",
     "email": "ashafi@bu.edu",
     "password": "heythere123"
 

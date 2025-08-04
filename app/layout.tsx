@@ -33,10 +33,12 @@ export default function RootLayout({
     <html lang="en" style={htmlBodyStyles}>
       <body style={htmlBodyStyles}>
 
-      <PageWrapper>
 
 
-          <NavBar/>
+      <PageWrapper>{/*Abdallah: Page wrapper is a styled component to contain all the content in. */}
+
+
+          <NavBar/> {/* Abdallah: To Display NavBar on all pages.*/}
           {children}
 
 
