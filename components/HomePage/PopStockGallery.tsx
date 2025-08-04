@@ -87,12 +87,12 @@ export default function PopStockGallery({ stocks }: {stocks: Stock[]}) {
                         <StockSty key={stock.symbol} change={stock.dp}>
                             <p id="x">{stock.symbol} 
                                 <span id="x2">
-                                    {stock.dp.toString().charAt(0)}{stock.dp.toString().slice(1,(stock.dp.toString.length - 2))}%
+                                    {stock.dp < 0 ? `${stock.dp.toFixed(3)}` : `+${stock.dp.toFixed(3)}`}%
                                 </span>
                             </p>
-                            <p id="y">${stock.c}
+                            <p id="y">${stock.c.toFixed(2)}
                                 <span> 
-                                    {stock.d.toString().charAt(0)}{stock.d.toString().slice(1)}%
+                                    {stock.d < 0 ? `${stock.d.toFixed(3)}` : `+${stock.d.toFixed(3)}`}%
                                 </span>
                             </p>
                             <p id="z">{stock.name}</p>

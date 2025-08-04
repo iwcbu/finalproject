@@ -26,7 +26,7 @@ export default function HomePopStocks() {
         }
         fetchStocks();
 
-        const interval = setInterval(fetchStocks, 30000);
+        const interval = setInterval(fetchStocks, 15000);
         
         return () => clearInterval(interval);
     }, []);

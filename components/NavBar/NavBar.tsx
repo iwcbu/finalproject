@@ -7,10 +7,16 @@ const StyledDiv=styled.div`
 /*  HEAD:components/NavBar.tsx */
     background-color: whitesmoke;
     height: fit-content;
-    padding: 10px;
+    padding: 10px 30px;
     border-bottom:2px black solid;
     background-color: black;
     border-bottom: 3px solid grey;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
 
 `;
 
@@ -25,13 +31,15 @@ const StyledHeader=styled.div`
 `;
 
 const StyledUl=styled.ul`
-    display:flex;
-    flex-direction:row;
-    justify-content: space-evenly;
+
+    display: flex;
+    gap: 45px;
     list-style:none;
+    
 
     a{
         color: white;
+        padding: 5px;
     }
 
 
@@ -45,23 +53,23 @@ const links=[
         name:<Home />
 
     },
-    {
-        key:"Account",
-        href:"/Account",
-        name:"Account"
-
-    },
-
+    
     {
         key: "About",
         href:"/About",
         name:"About"
     },
-
+    
     {
         key:"Contact",
         href:"/Contact",
         name:"Contact"
+    },
+    {
+        key:"Account",
+        href:"/Account",
+        name:"Account"
+
     }
 
 ];

@@ -43,11 +43,11 @@ export default function GalleryPage() {
                 padding: "1rem",
             }}>
                 <button onClick={() => page > 1 && setPage(page - 1)}>
-                    <ArrowBack sx={{ color: "maroon" }}/>
+                    <ArrowBack sx={{ color: "white" }}/>
                 </button>
-                <h1 style={{ color: "maroon"}}>Page - {page}</h1>
+                <h1 style={{ color: "white"}}>Page - {page}</h1>
                 <button onClick={() => setPage(page + 1)}>
-                    <ArrowForward sx={{ color: "maroon" }}/>
+                    <ArrowForward sx={{ color: "white" }}/>
                 </button>
             </div>
         </div>
