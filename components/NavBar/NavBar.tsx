@@ -61,9 +61,9 @@ const links=[
     },
     
     {
-        key:"Contact",
-        href:"/Contact",
-        name:"Contact"
+        key:"AllStocks",
+        href:"/AllStocks",
+        name:"All Stocks"
     },
     {
         key:"Account",

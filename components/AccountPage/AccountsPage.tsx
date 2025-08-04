@@ -7,8 +7,8 @@ import {Container} from "@/components/GlobalStyledComponents";
 
 const StyledCard = styled.div`
     margin:5rem auto;
-    background:linear-gradient(90deg, #000000, #ffffff);
-    box-shadow: 0 0 10px white;
+    background:black;
+    box-shadow: 0 0 10px grey;
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
