@@ -9,22 +9,21 @@ import Head from "next/head";
 const GallerySty = styled.div`
     margin: 0 auto;
     color: white;
+    max-width: 500px;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    @media (min-width: 910px) {
-        height: 600px;        
+    @media (min-width: 1000px) {
+        max-width: 1000px;
     }
 `;
 
 const StockSty = styled.div<{change: number}>`
     height: 130px;
     width: 200px;
-    margin: 5px;
+    margin: 1em;
     padding: 1rem;
-    background-color:white;
     background-color: black;
     overflow-y: auto;
     
@@ -33,6 +32,7 @@ const StockSty = styled.div<{change: number}>`
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 
+    
 
 
 
