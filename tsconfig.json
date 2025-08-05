@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/finnhub/quotes/route.js", "lib/getPrice.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/finnhub/quotes/route.js", "lib/getPrice.js", "lib/database.js"],
   "exclude": ["node_modules"]
 }

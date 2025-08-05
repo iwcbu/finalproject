@@ -32,7 +32,7 @@ const StyledCard = styled.div`
         
     }
 `;
-const FieldContainer=styled.div`
+const FieldContainer=styled.form`
     
 
 `;
@@ -50,7 +50,7 @@ const Label=styled.span`
     color:white;
 `;
 //Abdallah: Values from the mockdata.json from AccountMockDetails are mapped into this
-const Value=styled.span`
+const Input=styled.span`
     background-color: white;
     border-radius: 6px;
     box-shadow: 0 0 3px white;
@@ -70,30 +70,24 @@ export default function AccountsPage(){
         <Container>
             <StyledCard>
                 <h1>Your Account</h1>
-                {
-                data.slice(0,1).map((info)=>(
 
-                    <FieldContainer key={info.id}>
-                        <Field>
-                            <Label>Username:</Label>
-                            <Value>{info.username}</Value>
-                        </Field>
+                <FieldContainer action="/action_page.mo"> {/* <form> */}
+                    <Field>
+                        <Label>Username:</Label> { /* <label for="username"> */}
+                        <Input></Input>
+                    </Field>
 
-                        <Field>
-                            <Label>Email:</Label>
-                            <Value>{info.email}</Value>
-                        </Field>
-
-                        <Field>
-                            <Label>Password: </Label>
-                            <Value>{info.password}</Value>
-                        </Field>
+                    <Field>
+                        <Label>Email:</Label> { /* <label for="email"> */}
+                        <Input></Input>
+                    </Field>
+                    <Field>
+                        <Label>Password: </Label> { /* <label for="password"> */}
+                        <Input></Input>
+                    </Field>
 
 
-                    </FieldContainer>
-                    )
-                )
-            }
+                </FieldContainer>
             </StyledCard>
 
 
