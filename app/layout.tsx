@@ -4,6 +4,7 @@ import "./globals.css";
 import {PageWrapper} from "@/components/GlobalStyledComponents";
 
 import NavBar from "@/components/NavBar/NavBar";
+import Footer from "@/components/Footer";
 
 //ABDALLAH: I commented these as it is not our code.
 // const geistSans = Geist({
@@ -40,6 +41,7 @@ export default function RootLayout({
 
           <NavBar/> {/* Abdallah: To Display NavBar on all pages.*/}
           {children}
+          <Footer />
 
 
       </PageWrapper>

@@ -8,7 +8,25 @@ import styled from "styled-components";
 
 const GallerySty = styled.div`
     margin: 0 auto;
-`
+`;
+
+const PageSty = styled.div`
+    #heading {
+
+
+        padding: 40px;
+        color: white;
+        text-align: center;
+
+        font-size: 1.5rem;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 7px;
+        font-weight: 100;
+
+
+    }
+    
+`;
 
 
 
@@ -28,8 +46,8 @@ export default function GalleryPage() {
     }, [page])
 
     return (
-        <div style={{
-        }}>
+        <PageSty>
+            <h1 id="heading">Stock Gallery</h1>
             <GallerySty>
                 <StockGallery stocks={Object.values(stocks)} />
             </GallerySty>
@@ -50,7 +68,7 @@ export default function GalleryPage() {
                     <ArrowForward sx={{ color: "white" }}/>
                 </button>
             </div>
-        </div>
+        </PageSty>
     )
 
 

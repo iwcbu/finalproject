@@ -9,22 +9,22 @@ import Head from "next/head";
 const GallerySty = styled.div`
     margin: 0 auto;
     color: white;
-    max-width: 500px;
-    margin-bottom: 50px;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    @media (min-width: 1000px) {
-        max-width: 1000px;
+
+    @media (min-width: 910px) {
+        height: 600px;        
     }
 `;
 
 const StockSty = styled.div<{change: number}>`
     height: 130px;
     width: 200px;
-    margin: 1em;
+    margin: 5px;
     padding: 1rem;
+    background-color:white;
     background-color: black;
     overflow-y: auto;
     
@@ -33,7 +33,6 @@ const StockSty = styled.div<{change: number}>`
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
 
-    
 
 
 
@@ -88,12 +87,12 @@ export default function PopStockGallery({ stocks }: {stocks: Stock[]}) {
                         <StockSty key={stock.symbol} change={stock.dp}>
                             <p id="x">{stock.symbol} 
                                 <span id="x2">
-                                    {stock.dp < 0 ? `${stock.dp.toFixed(3)}` : `+${stock.dp.toFixed(3)}`}%
+                                    {stock.dp.toString().charAt(0)}{stock.dp.toString().slice(1,(stock.dp.toString.length - 2))}%
                                 </span>
                             </p>
-                            <p id="y">${stock.c.toFixed(2)}
+                            <p id="y">${stock.c}
                                 <span> 
-                                    {stock.d < 0 ? `$${stock.d.toFixed(3)}` : `+$${stock.d.toFixed(3)}`}
+                                    {stock.d.toString().charAt(0)}{stock.d.toString().slice(1)}%
                                 </span>
                             </p>
                             <p id="z">{stock.name}</p>

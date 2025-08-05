@@ -2,6 +2,8 @@
 
 //            Our stock structure for common functionality - IWC 
 
+import { UTCTimestamp } from "lightweight-charts";
+
 export type Stock = {
     symbol: string;
     name: string; // stock name
@@ -50,4 +52,13 @@ export type FHStockPrices = {
     t: number[]; // timestamps
     v: number[]; // volume
     s: string; // status
+}
+
+
+export type Candle = {
+    time: UTCTimestamp; // seconds since epoch (january 1, 1970) - IWC
+    open: number;
+    high: number;
+    low: number;
+    close: number;
 }
