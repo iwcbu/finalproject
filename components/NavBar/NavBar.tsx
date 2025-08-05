@@ -9,8 +9,8 @@ const StyledDiv=styled.div`
 /*  HEAD:components/NavBar.tsx */
     
     height: fit-content;
-    padding: 10px 30px;
-    border-bottom:2px black solid;
+    padding: 10px;
+  
     background-color: black;
     border-bottom: 3px solid grey;
 
@@ -23,8 +23,7 @@ const StyledDiv=styled.div`
 `;
 
 const StyledHeader=styled.div`
-    display: flex;
-    justify-content: space-between;
+   
     h1{
         color:white;
         
@@ -51,7 +50,9 @@ const StyledUl=styled.ul<{ open : boolean }>`
 
 
     @media screen and (max-width: 750px) {
+        
         flex-direction: column;
+        float:right;
 
         display:${({open}) => (open ? "flex" : "none")};
 
@@ -63,8 +64,12 @@ const Hamburger=styled(Menu)`
     color:white;
     cursor: pointer;
     display:none;
+    opacity:0;
+    
     @media screen and (max-width: 750px) {
         display:block;
+        opacity:1;
+       
     }
 `;
 const links=[
@@ -95,6 +100,10 @@ const links=[
 
 ];
 
+const MenuMagic=styled.div`
+    
+   
+`;
 
 export default function NavBar() {
 
@@ -103,20 +112,31 @@ export default function NavBar() {
     return(
         <StyledDiv>
             <StyledHeader><h1>Market Scouters</h1>
-                <Hamburger onClick={()=>setOpen(!open)}/>
-            </StyledHeader>
-            <nav>
-                <StyledUl open={open}>
 
-                    {links.map((link)=>(
-                        <li key={link.key}>
-                            <Link href={link.href}>{link.name}</Link>
-                        </li>
-                        
-                        ))
-                    }
-                </StyledUl>
-            </nav>
+            </StyledHeader>
+
+                <MenuMagic>
+                    <Hamburger onClick={()=>setOpen(!open)}/>
+                    <nav>
+                        <StyledUl open={open}>
+
+                            {links.map((link)=>(
+                                <li key={link.key}>
+                                    <Link href={link.href}>{link.name}</Link>
+                                </li>
+
+                            ))
+                            }
+                        </StyledUl>
+
+
+                    </nav>
+
+
+                </MenuMagic>
+
+
+
         </StyledDiv>
     );
 }
