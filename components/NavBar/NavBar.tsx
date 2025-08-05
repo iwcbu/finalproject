@@ -1,11 +1,13 @@
 "use client"
 import Link from "next/link";
 import styled from "styled-components";
-import { Home } from "@mui/icons-material"
+import { Home, Menu } from "@mui/icons-material";
+import { useState } from "react";
+
 
 const StyledDiv=styled.div`
 /*  HEAD:components/NavBar.tsx */
-    background-color: whitesmoke;
+    
     height: fit-content;
     padding: 10px 30px;
     border-bottom:2px black solid;
@@ -21,8 +23,11 @@ const StyledDiv=styled.div`
 `;
 
 const StyledHeader=styled.div`
+    display: flex;
+    justify-content: space-between;
     h1{
         color:white;
+        
     }
     
 
@@ -30,9 +35,11 @@ const StyledHeader=styled.div`
 
 `;
 
-const StyledUl=styled.ul`
+const StyledUl=styled.ul<{ open : boolean }>`
 
     display: flex;
+    flex-direction: row;
+    
     gap: 45px;
     list-style:none;
     
@@ -43,9 +50,23 @@ const StyledUl=styled.ul`
     }
 
 
+    @media screen and (max-width: 750px) {
+        flex-direction: column;
+
+        display:${({open}) => (open ? "flex" : "none")};
+
+    }
+
+
 `;
-
-
+const Hamburger=styled(Menu)`
+    color:white;
+    cursor: pointer;
+    display:none;
+    @media screen and (max-width: 750px) {
+        display:block;
+    }
+`;
 const links=[
     {
         key:"Home",
@@ -76,13 +97,16 @@ const links=[
 
 
 export default function NavBar() {
-    // const pathname=usePathname();
+
+    const [open, setOpen]=useState(false);
 
     return(
         <StyledDiv>
-            <StyledHeader><h1>Market Scouters</h1></StyledHeader>
+            <StyledHeader><h1>Market Scouters</h1>
+                <Hamburger onClick={()=>setOpen(!open)}/>
+            </StyledHeader>
             <nav>
-                <StyledUl>
+                <StyledUl open={open}>
 
                     {links.map((link)=>(
                         <li key={link.key}>

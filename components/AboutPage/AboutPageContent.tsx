@@ -134,14 +134,14 @@ export default function AboutPageContent() {
 
                     <CardContainer>
                     <Card>
-                        <Image src="" width={100} height={100} alt="Ian" />
+                        <Image src="" width={200} height={200} alt="Ian" />
                         <LinkedText href="https://www.linkedin.com/in/iwc3/" target="_blank">Ian Campbell | CS@BU</LinkedText>
 
 
                     </Card>
 
                     <Card>
-                        <Image src="" width={100} height={100} alt="Abdallah" />
+                        <Image src="/AbdallahImage.png" width={200} height={200} alt="Abdallah" />
                         <LinkedText href="https://www.linkedin.com/in/abdallah-shafiullah-988601245" target="_blank">Abdallah Shafiullah | CS@BU</LinkedText>
 
 
