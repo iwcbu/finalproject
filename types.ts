@@ -62,3 +62,17 @@ export type Candle = {
     low: number;
     close: number;
 }
+
+
+
+export type ProfileEntryProps = {
+    username: string;
+    profile: { 
+        password: string,
+        email: string,
+        firstName: string | null;
+        lastName: string | null;
+        pfp: string | null; 
+        favStocks: SimpleStock[]; 
+    }
+}

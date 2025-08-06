@@ -40,6 +40,7 @@ const StyledUl = styled.ul`
 
     @media screen and (max-width: 750px) {
         display: none;
+        
     }
 `;
 
