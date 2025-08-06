@@ -1,16 +1,17 @@
-"use client"
+"use client";
 import Link from "next/link";
 import styled from "styled-components";
-import { Home, Menu } from "@mui/icons-material";
+import { Home } from "@mui/icons-material";
 import { useState } from "react";
 
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MenuIcon from "@mui/icons-material/Menu";
+import * as React from "react";
 
-const StyledDiv=styled.div`
-/*  HEAD:components/NavBar.tsx */
-    
+const StyledDiv = styled.div`
     height: fit-content;
     padding: 10px;
-  
     background-color: black;
     border-bottom: 3px solid grey;
 
@@ -18,125 +19,131 @@ const StyledDiv=styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-
 `;
 
-const StyledHeader=styled.div`
-   
-    h1{
-        color:white;
-        
+const StyledHeader = styled.div`
+    h1 {
+        color: white;
     }
-    
-
- /* 34e5313f0c6a3ba2af9a0bc67c84f256d87dd667:components/NavBar/NavBar.tsx */
-
 `;
 
-const StyledUl=styled.ul<{ open : boolean }>`
-
+const StyledUl = styled.ul`
     display: flex;
     flex-direction: row;
-    
     gap: 45px;
-    list-style:none;
-    
+    list-style: none;
 
-    a{
+    a {
         color: white;
         padding: 5px;
     }
 
-
     @media screen and (max-width: 750px) {
-        
-        flex-direction: column;
-        float:right;
-
-        display:${({open}) => (open ? "flex" : "none")};
-
-    }
-
-
-`;
-const Hamburger=styled(Menu)`
-    color:white;
-    cursor: pointer;
-    display:none;
-    opacity:0;
-    
-    @media screen and (max-width: 750px) {
-        display:block;
-        opacity:1;
-       
+        display: none;
     }
 `;
-const links=[
+
+
+
+const links = [
     {
-        key:"Home",
-        href:"/",
-        name:<Home />
-
+        key: "Home",
+        href: "/",
+        name: <Home />,
     },
-    
     {
         key: "About",
-        href:"/About",
-        name:"About"
-    },
-    
-    {
-        key:"AllStocks",
-        href:"/AllStocks",
-        name:"All Stocks"
+        href: "/About",
+        name: "About",
     },
     {
-        key:"Account",
-        href:"/Account",
-        name:"Account"
-
-    }
-
+        key: "AllStocks",
+        href: "/AllStocks",
+        name: "All Stocks",
+    },
+    {
+        key: "Account",
+        href: "/Account",
+        name: "Account",
+    },
 ];
 
-const MenuMagic=styled.div`
-    
-   
+const MenuMagic = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
+const HamburgerButton = styled.button`
+
+    color: white;
+    cursor: pointer;
+
+    opacity: 0;
+
+    @media screen and (max-width: 750px) {
+        display: block;
+        opacity: 1;
+    }
+`;
 export default function NavBar() {
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
 
-    const [open, setOpen]=useState(false);
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
 
-    return(
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    return (
         <StyledDiv>
-            <StyledHeader><h1>Market Scouters</h1>
-
+            <StyledHeader>
+                <h1>Market Scouters</h1>
             </StyledHeader>
 
-                <MenuMagic>
-                    <Hamburger onClick={()=>setOpen(!open)}/>
-                    <nav>
-                        <StyledUl open={open}>
+            <MenuMagic>
+                <HamburgerButton onClick={handleClick} aria-label="Open menu">
+                    <MenuIcon />
+                </HamburgerButton>
 
-                            {links.map((link)=>(
-                                <li key={link.key}>
-                                    <Link href={link.href}>{link.name}</Link>
-                                </li>
+                {/*This is how our nav will appear for screens bigger than 750px*/}
+                <nav>
+                    <StyledUl>
+                        {links.map((link) => (
+                            <li key={link.key}>
+                                <Link href={link.href}>{link.name}</Link>
+                            </li>
+                        ))}
+                    </StyledUl>
+                </nav>
 
-                            ))
-                            }
-                        </StyledUl>
-
-
-                    </nav>
-
-
-                </MenuMagic>
-
-
-
+                {/* This code is from MUI  */}
+                <Menu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    slotProps={{
+                        list: {
+                            "aria-labelledby": "menu-button",
+                        },
+                    }}
+                >
+                    {links.map((link) => (
+                        <MenuItem key={link.key} onClick={handleClose}>
+                            <Link
+                                href={link.href}
+                                style={{ textDecoration: "none", color: "inherit" }}
+                            >
+                                {link.name}
+                            </Link>
+                        </MenuItem>
+                    ))}
+                </Menu>
+            </MenuMagic>
         </StyledDiv>
     );
 }
