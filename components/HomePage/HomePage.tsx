@@ -6,7 +6,6 @@ import styled from "styled-components";
 import PopStockGallery from "@/components/HomePage/PopStockGallery";
 import Head from "next/head";
 import CountdownTimer from "./timer";
-import { Stock } from "@/types";
 import StockDay from "./StockDay";
 
 
