@@ -1,4 +1,4 @@
-import { clearProfile } from '@/lib/clearProfile';
+import { clearProfile } from '@/lib/profileLib/clearProfile';
 
 
 clearProfile();

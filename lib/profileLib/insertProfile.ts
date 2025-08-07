@@ -1,6 +1,6 @@
 "use server";
 import getCollection, { ENTRIES_COLLECTION } from "@/db";
-import getProfile from "./getProfile";
+import getProfile from "@/lib/profileLib/getProfile";
 import { ProfileEntryProps } from "@/types";
 
 export default async function insertProfile(entry: ProfileEntryProps): Promise<string> {

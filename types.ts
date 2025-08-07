@@ -68,7 +68,7 @@ export type Candle = {
 
 export type ProfileEntryProps = {
     username: string;
-    profile: { 
+    profile: {
         password: string,
         email: string,
         firstName: string | null;

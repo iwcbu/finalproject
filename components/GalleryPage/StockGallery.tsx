@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Stock } from '../../types';
 import { Button } from "@mui/material";
 import { Star } from "@mui/icons-material";
-import getProfile from "@/lib/getProfile";
+import getProfile from "@/lib/profileLib/getProfile";
 import { useEffect, useState } from "react";
 
 const GallerySty = styled.div`
@@ -78,18 +78,6 @@ export default function StockGallery({ stocks }: {stocks: SimpleStock[]}) {
     
     console.log("These are the stocks: ",stocks);
     const [tracked, setTracked] = useState(false);
-    const [profile, setProfile] = useState({});
-
-    /*useEffect(() => {
-        try { 
-            const prof = 
-            
-
-
-        } catch (e) {
-            console.log("Error found: ", e)
-        }
-    }) */
  
     return (
         <GallerySty>

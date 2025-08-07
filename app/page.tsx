@@ -20,10 +20,12 @@ export default function Home() {
       //  - if you refresh the page, it still will hold its value.
       //
       if (hasRun === null) { 
-        fetch('/api/clearProfile').then(() => {
+        fetch('/api/startup').then(() => {
           console.log('Guest profile is now active');
         });
         sessionStorage.setItem('hasRun', 'true') // this sets the null to true, preventing the if statement from completing again.
+      } else {
+        console.log
       }
     }, []);
 
