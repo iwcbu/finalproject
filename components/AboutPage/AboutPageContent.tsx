@@ -58,6 +58,14 @@ const Card=styled.div`
     box-shadow: 0 0 5px white;
     width: 200px;
     height: 250px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height:200px;
+        object-fit: cover;
+        object-position: center;
+    }
     
 
 `;
@@ -134,7 +142,7 @@ export default function AboutPageContent() {
 
                     <CardContainer>
                     <Card>
-                        <Image src="" width={200} height={200} alt="Ian" />
+                        <img src="/IanImage.jpg" alt="Ian" />
                         <LinkedText href="https://www.linkedin.com/in/iwc3/" target="_blank">Ian Campbell | CS@BU</LinkedText>
 
 
