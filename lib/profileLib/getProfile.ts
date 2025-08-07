@@ -1,5 +1,6 @@
 import getCollection, { ENTRIES_COLLECTION } from "@/db";
 import { ProfileEntryProps } from "@/types";
+import { profile } from "console";
 
 export default async function getProfile(usern: string): Promise<ProfileEntryProps | null> {
     if (!usern) {
@@ -7,11 +8,16 @@ export default async function getProfile(usern: string): Promise<ProfileEntryPro
     }
 
     const entriesCollection = await getCollection(ENTRIES_COLLECTION);
-    const doc = await entriesCollection.findOne({ usern });
+    const doc = await entriesCollection.findOne({ username: usern });
 
     if (!doc) {
         return null;
     } 
 
-    return doc?.profile ?? null;
+    const prof = doc?.profile
+    if (prof === null) {
+        return null
+    }
+    const fullProfile: ProfileEntryProps = { username: usern, profile: prof}
+    return fullProfile;
 }

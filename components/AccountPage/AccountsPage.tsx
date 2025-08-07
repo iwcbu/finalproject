@@ -1,23 +1,19 @@
 "use client"
 //Abdallah: This File has the logic behind displaying content on the Accounts Page
-import MockData from "@/AccountMockDetails/MockData.json";
 import styled from "styled-components";
 import {Container} from "@/components/GlobalStyledComponents";
 import { useState } from "react";
-import getProfile from "@/lib/profileLib/getProfile";
-import insertProfile from "@/lib//profileLib/insertProfile";
-import signIn from "@/lib/profileLib/signIn";
 
 
 const StyledCard = styled.div`
     margin:5rem auto;
 
     //background:linear-gradient(90deg, #000000, #ffffff);
-    border: 3px grey solid;
+
     
 
     background:black;
-    box-shadow: 0 0 10px grey;
+    box-shadow: 0 0 3px white;
 
     display:flex;
     flex-direction: column;
@@ -38,14 +34,34 @@ const StyledCard = styled.div`
 `;
 const FieldContainer=styled.form`
 
+    button {
+        display: flex;
+        margin: 0 auto;
+        color: white;
+        padding: 3px;
+        border-radius: 5px;
+        box-shadow: 0 0 3px white;
+
+    }
 
 `;
 
 //Abdallah: This is a styled div for pair of label and its value (Ex. Username : Abdallah)
-const Field=styled.form`
+const Field=styled.div`
     margin-bottom:1rem;
     display:flex;
     flex-direction:column;
+
+    input {
+        color: white;
+        padding: 3px;
+        padding-left: 5px;
+        border-radius: 6px;
+        box-shadow: 0 0 3px white;
+        min-width: 200px;
+    }
+
+    
     
 `;
 
@@ -55,10 +71,7 @@ const Label=styled.span`
 `;
 //Abdallah: Values from the mockdata.json from AccountMockDetails are mapped into this
 const Input=styled.span`
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 0 0 3px white;
-    min-width: 200px;
+    
 
 `;
 
@@ -73,52 +86,54 @@ export default function AccountsPage(){
     const [email, setEmail] = useState("");
     const [messageDisp, setMessageDisp] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (getProfile(usern) === null) {
 
-            const newProfile = {
-                username: usern,
-                profile: {
-                    password: passw,
-                    email: email,
-                    firstName: null,
-                    lastName: null,
-                    pfp: null,
-                    favStocks: []
-                }
-            }
+        const res = await fetch('/api/account/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({usern, passw, email })
+        });
 
-            insertProfile(newProfile);
-            signIn(usern, newProfile.profile.password);
-            
-        } else {
-            signIn(usern, passw);
-        }
-        
-    }
-
+        const data = await res.json();
+        setMessageDisp(data.message);
+    };
 
     return(
         <Container>
             <StyledCard>
                 <h1>Your Account</h1>
 
-                <FieldContainer action="/action_page.mo"> {/* <form> */}
-                    <Field onSubmit={handleSubmit}>
+                <FieldContainer onSubmit={handleSubmit}> {/* <form> */}
+                    <Field>
                         <Label>Username:</Label> { /* <label for="username"> */}
-                        <Input></Input>
+                        <input
+                            type="text"
+                            value={usern}
+                            onChange={(e) => setUsern(e.target.value)}
+                            />
                     </Field>
 
-                    <Field onSubmit={handleSubmit}>
+                    <Field>
                         <Label>Email:</Label> { /* <label for="email"> */}
-                        <Input></Input>
-                    </Field>
-                    <Field onSubmit={handleSubmit}>
-                        <Label>Password: </Label> { /* <label for="password"> */}
-                        <Input></Input>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                     </Field>
 
+                    <Field>
+                        <Label>Password: </Label> { /* <label for="password"> */}
+                        <input 
+                            type="password"
+                            value={passw}
+                            onChange={(e) => setPassw(e.target.value)}
+                        />
+                    </Field>
+
+                    <button type="submit">Log in</button>
+                    <h2>{messageDisp}</h2>
 
                 </FieldContainer>
             </StyledCard>
