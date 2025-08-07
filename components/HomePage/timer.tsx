@@ -5,6 +5,16 @@ import {useState, useEffect } from "react";
 import styled from "styled-components";
 
 
+const TimerSty = styled.div`
+
+    color: white;
+    text-align: center;
+    font-size: .8rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+
+
+`;
 // A timer for when the next price fetch is for stocks
 export default function CountdownTimer() {
     const [timeLeft, setTimeLeft] = useState(30); // sets timeleft default to 30 seconds
@@ -22,17 +32,6 @@ export default function CountdownTimer() {
         return () => clearInterval(timer);
 
     }, []);
-
-const TimerSty = styled.div`
-
-    color: white;
-    text-align: center;
-    font-size: .8rem;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1px;
-
-
-`;
 
     return (
         <>

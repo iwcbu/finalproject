@@ -1,0 +1,11 @@
+{
+  "username": "guest",
+  "profile": {
+    "password": null,
+    "email": null,
+    "firstName": null,
+    "lastName": null,
+    "pfp": null,
+    "favStocks": []
+  }
+}

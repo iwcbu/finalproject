@@ -1,16 +1,37 @@
+'use client';
 
 import HomePage from "@/components/HomePage/HomePage";
-import StockDay from "@/components/HomePage/StockDay";
-import Footer from "@/components/Footer";
+import { useEffect, useRef } from "react";
 
 //Abdallah:
 //This function is our Home page.
 export default function Home() {
 
-  return (
-    <div>
-      <HomePage />
-    </div>
+  
+  useEffect(() => {
+    
+      const hasRun = sessionStorage.getItem('hasRun'); 
+      //                 sessionStorage - temporary db for web tabs
+      //       * When we put in 'hasRun', it initiats a new key 'hasRun' with value null. *
+      //                        ex:  { 'hasRun' : null }
+      //
+      //
+      // Because this initiation happens when starting the db for the tab, this will only run once for every tab
+      //  - if you refresh the page, it still will hold its value.
+      //
+      if (hasRun === null) { 
+        fetch('/api/clearProfile').then(() => {
+          console.log('Guest profile is now active');
+        });
+        sessionStorage.setItem('hasRun', 'true') // this sets the null to true, preventing the if statement from completing again.
+      }
+    }, []);
 
-  );
+
+    return (
+      <div>
+        <HomePage />
+      </div>
+
+    );
 }

@@ -43,6 +43,7 @@ export default function GalleryPage() {
             setStocks(data);
         }
         fetchStocks();
+        
     }, [page])
 
     return (

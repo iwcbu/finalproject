@@ -42,6 +42,7 @@ export type FHSecurity = {
 export type SimpleStock = {
     symbol: string;
     name: string;
+    tracked: boolean;
 }
 
 export type FHStockPrices = {

@@ -7,6 +7,7 @@ import PopStockGallery from "@/components/HomePage/PopStockGallery";
 import Head from "next/head";
 import CountdownTimer from "./timer";
 import StockDay from "./StockDay";
+import { useRef } from "react";
 
 
 
@@ -47,14 +48,12 @@ const GallerySty = styled.div`
 `;
 
 export default function HomePage() {
+
     const [popStocks, setPopStocks] = useState({})
     useEffect(() => {
-        console.log("useEffect in HomePopStock is runnng")
         const fetchStocks = async () => {
             try {
-                console.log("HomePopStock -> fetchStocks start")
                 const d = await getPopStockPrices();
-                console.log("HomePopStock -> Fetched data: ",d) 
                 const data = Object.values(d);
 
                 setPopStocks(data);
@@ -72,9 +71,6 @@ export default function HomePage() {
     useEffect(() => {
         console.log("Updated popStocks: ", popStocks);
     }, [popStocks])
-
-
-    console.log("popstocks test here", popStocks)
 
     return (
         <>
