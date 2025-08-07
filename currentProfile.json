@@ -1,12 +1,11 @@
 {
-  "username": "iwc3",
+  "username": "guest",
   "profile": {
-    "password": "password123",
-    "email": "iwc3@bu.edu",
-    "firstName": "Ian",
-    "lastName": "Campbell",
+    "password": null,
+    "email": null,
+    "firstName": null,
+    "lastName": null,
     "pfp": null,
-    "favStocks": [],
-    "profileColor": "green"
+    "favStocks": []
   }
 }

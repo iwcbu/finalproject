@@ -6,6 +6,8 @@ import Image from "next/image";
 import {useRef} from "react";
 
 //Abdallah:This component is responsible for displaying all the content on the About page
+//This page is broken down into 3 sections: Our project, Meet the team, and what powers our app
+
 
 const PageParent=styled.div`
     color:white;
@@ -37,6 +39,7 @@ const AboutDivContent=styled.div`
     margin-top: 1rem;
 
 `;
+
 const TeamDiv=styled.div`
     
     
@@ -106,16 +109,18 @@ const IconWrapper=styled.div`
 
 export default function AboutPageContent() {
 
+    //useRef is used to help with the scroll functionality
     const ref=useRef<HTMLDivElement>(null);
 
 
-
+//Handles the right scrolling when button is clicked
     const scrollRight=()=>{
         if(ref.current) {
             ref.current.scrollLeft += 100;
         }
 
     }
+    //Handles the left scrolling when the button is clicked
     const scrollLeft=()=>{
         if(ref.current) {
             ref.current.scrollLeft -= 100;
