@@ -97,6 +97,7 @@ export default function AccountsPage(){
 
         const data = await res.json();
         setMessageDisp(data.message);
+        
     };
 
     return(
