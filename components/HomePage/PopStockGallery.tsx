@@ -82,8 +82,12 @@ export default function PopStockGallery({ stocks }: {stocks: Stock[]}) {
                     rel="stylesheet"
                 />
             </Head>
+
+            {/* Render a gallery of stock cards */}
             <GallerySty>
                 {
+
+                    // Loop through each stock
                     Object.values(stocks).map((stock: Stock) => (
                         <StockSty key={stock.symbol} change={stock.dp}>
                             <p id="x">{stock.symbol} 

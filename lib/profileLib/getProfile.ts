@@ -1,6 +1,5 @@
 import getCollection, { ENTRIES_COLLECTION } from "@/db";
 import { ProfileEntryProps } from "@/types";
-import { profile } from "console";
 
 export default async function getProfile(usern: string): Promise<ProfileEntryProps | null> {
     if (!usern) {

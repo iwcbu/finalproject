@@ -82,7 +82,7 @@ const StockDayDiv=styled.div<{change: number}>`
    
 `;
 export default function StockDay({stocks}: {stocks: Stock[]}) {
-    const stock = stocks.at(-1);
+    const stock = stocks.at(-1); // grabs the last stock in the array, which was the best performing one calculated before
 
     console.log("StockDay -> This is stocks: ", stocks)
 

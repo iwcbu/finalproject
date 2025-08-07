@@ -7,7 +7,7 @@ export default async function signIn(username: string, password: string) {
 
     const p = await getProfile(username);
     if (p === null) {
-        return `Username: ${username} does not exist`
+        return {success: false, message:`Username: ${username} does not exist`};
     }    
     
     console.log("signIn -> password given: ",password)
@@ -23,10 +23,9 @@ export default async function signIn(username: string, password: string) {
         // fs.writeFileSync - overwrites the existing contents entirely 
         fs.writeFileSync(filePath, jsonString, 'utf-8');
         console.log(`${username}'s profile is now active:`)
-        
-        return `Welcome, ${username}`
+        return { success: true, message: `Welcome, ${username}`};
     } else {
-        return "Username or password were incorrect, please try again."
+        return {success: false, message: "Username or password were incorrect, please try again."}
     }
 
 

@@ -2,12 +2,13 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { Home } from "@mui/icons-material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import * as React from "react";
+
 
 const StyledDiv = styled.div`
     height: fit-content;
@@ -46,28 +47,6 @@ const StyledUl = styled.ul`
 
 
 
-const links = [
-    {
-        key: "Home",
-        href: "/",
-        name: <Home />,
-    },
-    {
-        key: "About",
-        href: "/About",
-        name: "About",
-    },
-    {
-        key: "AllStocks",
-        href: "/AllStocks",
-        name: "All Stocks",
-    },
-    {
-        key: "Account",
-        href: "/Account",
-        name: "Account",
-    },
-];
 
 const MenuMagic = styled.div`
     display: flex;
@@ -88,6 +67,37 @@ const HamburgerButton = styled.button`
     }
 `;
 export default function NavBar() {
+    const [value, setValue] = useState(false);
+
+    useEffect(() => {
+        const stored = sessionStorage.getItem('isLoggedIn');
+        setValue(stored === 'true');
+    }, []);
+
+
+    const links = [
+        {
+            key: "Home",
+            href: "/",
+            name: <Home />,
+        },
+        {
+            key: "About",
+            href: "/About",
+            name: "About",
+        },
+        {
+            key: "AllStocks",
+            href: "/AllStocks",
+            name: "All Stocks",
+        },
+        {
+            key: "Account",
+            href: value ? "/Profile" : "/Account" ,
+            name: value ? "Profile" : "Account",
+        },
+    ];
+
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
 

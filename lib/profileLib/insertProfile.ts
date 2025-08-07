@@ -2,20 +2,30 @@
 import getCollection, { ENTRIES_COLLECTION } from "@/db";
 import getProfile from "@/lib/profileLib/getProfile";
 import { ProfileEntryProps } from "@/types";
+import { profile } from 'console';
 
 export default async function insertProfile(entry: ProfileEntryProps): Promise<string> {
-    const { username, profile } = entry;
+    const username = entry.username;
+    const profile = entry.profile;
 
-    if (!username || !profile || !profile.email || !profile.lastName) {
+    console.log("insertProfile -> start of function");
+    console.log("insertProfile -> username: ", username);
+    console.log("insertProfile -> profile: ", profile);
+
+    if (!username || !profile || !profile.email || !profile.password) {
+        
+
         return "Username or Password missing";
     }
 
     const existingProfile = await getProfile(username);
     if (existingProfile) {
+        console.log("insertProfile -> Profile already exists.");
         return "Profile already exists."
     }
 
     const entriesCollection = await getCollection(ENTRIES_COLLECTION);
+    
     const res = await entriesCollection.insertOne({
         username: username,
         profile: profile,
@@ -31,5 +41,6 @@ export default async function insertProfile(entry: ProfileEntryProps): Promise<s
         }).format(new Date()),
     });
 
+    console.log("insertProfile -> res: ", res.acknowledged)
     return res.acknowledged ? "" : "System error, please try again later.";
 }

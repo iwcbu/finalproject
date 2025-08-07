@@ -24,9 +24,8 @@ export default function Home() {
           console.log('Guest profile is now active');
         });
         sessionStorage.setItem('hasRun', 'true') // this sets the null to true, preventing the if statement from completing again.
-      } else {
-        console.log
-      }
+        sessionStorage.setItem('isLogged', 'false');
+      } 
     }, []);
 
 

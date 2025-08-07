@@ -1,12 +1,8 @@
 "use client";
 
-import { SimpleStock, } from "@/types";
+import { SimpleStock } from "@/types";
 import styled from "styled-components";
-import { Stock } from '../../types';
-import { Button } from "@mui/material";
-import { Star } from "@mui/icons-material";
-import getProfile from "@/lib/profileLib/getProfile";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 const GallerySty = styled.div`
     margin: 0 auto;
@@ -20,7 +16,6 @@ const GallerySty = styled.div`
     @media (min-width: 1000px) {
         height: 600px;        
     }
-
 `;
 
 const StockSty = styled.div`
@@ -39,7 +34,6 @@ const StockSty = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
-
     h1 {
         font-size: 20px;
         color: white;
@@ -48,12 +42,8 @@ const StockSty = styled.div`
     p {
         color: white;
         font-size: 10px;
-        width: 80%
+        width: 80%;
     }
-
-    @media (min-width: 910px) {       
-    }
-
 `;
 
 const ButtonSty = styled.button`
@@ -69,35 +59,67 @@ const SpanSty = styled.span`
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+
+    #ah {
+        width: 100%;
+        color: white;
+        font-size: 10px;
+        padding: 3px;
+
+    }
 `;
 
-
-
-
-export default function StockGallery({ stocks }: {stocks: SimpleStock[]}) {
+export default function StockGallery({ stocks }: { stocks: SimpleStock[] }) {
+    // Use a Set to track which symbols are currently tracked
+    const [trackedStocks, setTrackedStocks] = useState<Set<string>>(new Set());
+    const [ isLoggedIn, setIsLoggedIn] = useState(false);
     
-    console.log("These are the stocks: ",stocks);
-    const [tracked, setTracked] = useState(false);
- 
+    useEffect(() => {
+        const res = sessionStorage.getItem('isLoggedIn');
+        if (res === 'true') {
+            setIsLoggedIn(true);
+        }
+    }, []);
+
+    console.log(isLoggedIn)
+
+
+    // Toggle the tracked status of a stock symbol
+    const toggleTracked = (symbol: string) => {
+        setTrackedStocks(prev => {
+            const updated = new Set(prev);
+            if (updated.has(symbol)) {
+                updated.delete(symbol); // Untrack
+            } else {
+                updated.add(symbol); // Track
+            }
+            return updated;
+        });
+    };
+
     return (
         <GallerySty>
-            {
-                Object.values(stocks).map((stock: SimpleStock) => (
+            {stocks.map((stock: SimpleStock) => {
+                const isTracked = trackedStocks.has(stock.symbol);
+
+                return (
                     <StockSty key={stock.symbol}>
                         <div>
                             <h1>{stock.symbol}</h1>
                             <p>{stock.name}</p>
                         </div>
                         <SpanSty>
-                            <ButtonSty >
-                                {(tracked) ? "Untrack" : "Track"}
+                            <div id="ah">{!isLoggedIn ? "Log in to track": ""}</div>
+                            <ButtonSty disabled={!isLoggedIn} onClick={() => toggleTracked(stock.symbol)}>
+                                {isTracked ? "Untrack" : "Track"}
                             </ButtonSty>
                         </SpanSty>
-
                     </StockSty>
-                ))
-            }
+                );
+            })}
         </GallerySty>
-    )
-
+    );
 }
