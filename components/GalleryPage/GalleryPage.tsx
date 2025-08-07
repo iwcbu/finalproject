@@ -30,6 +30,9 @@ const PageSty = styled.div`
 
 
 
+
+
+
 export default function GalleryPage() {
     const [page, setPage] = useState(1);
     const [stocks, setStocks] = useState({});

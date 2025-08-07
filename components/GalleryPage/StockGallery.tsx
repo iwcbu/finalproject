@@ -11,31 +11,33 @@ import { useEffect, useState } from "react";
 const GallerySty = styled.div`
     margin: 0 auto;
     min-height: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
 
     display: flex;
     flex-wrap: wrap;
-    gap: .8rem;
     justify-content: center;
 
-    @media (min-width: 910px) {
+    @media (min-width: 1000px) {
         height: 600px;        
     }
 
 `;
 
 const StockSty = styled.div`
-    height: 130px;
-    width: 200px;
+    height: 150px;
+    width: 220px;
     margin: 1em;
     padding: 1rem;
     background-color: black;
-    overflow-y: auto;
     
     border: 2px grey solid;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
 
     h1 {
@@ -55,9 +57,6 @@ const StockSty = styled.div`
 `;
 
 const ButtonSty = styled.button`
-    
-
-
     width: fit-content;
     height: fit-content;
 
@@ -67,7 +66,9 @@ const ButtonSty = styled.button`
 `;
 
 const SpanSty = styled.span`
-    
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 `;
 
 
@@ -95,8 +96,10 @@ export default function StockGallery({ stocks }: {stocks: SimpleStock[]}) {
             {
                 Object.values(stocks).map((stock: SimpleStock) => (
                     <StockSty key={stock.symbol}>
-                        <h1>{stock.symbol}</h1>
-                        <p>{stock.name}</p>
+                        <div>
+                            <h1>{stock.symbol}</h1>
+                            <p>{stock.name}</p>
+                        </div>
                         <SpanSty>
                             <ButtonSty >
                                 {(tracked) ? "Untrack" : "Track"}
