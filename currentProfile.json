@@ -1,8 +1,15 @@
 {
+<<<<<<< HEAD
   "username": "test",
   "profile": {
     "password": "test",
     "email": "test@test.com",
+=======
+  "username": "guest",
+  "profile": {
+    "password": null,
+    "email": null,
+>>>>>>> d1aee8f21e17e18048f74ec9f60c0c5f562cb3b1
     "firstName": null,
     "lastName": null,
     "pfp": null,

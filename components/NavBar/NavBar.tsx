@@ -10,6 +10,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import * as React from "react";
 
 
+//Abdallah: This component handles everything related to the Nav bar
+//Using material UI and media query it is made to chnage from a horizontal
+// nav menu to a MUI Menu icon for screens with max width 750px
+
 const StyledDiv = styled.div`
     height: fit-content;
     padding: 10px;
